@@ -11,12 +11,12 @@ export function Footer() {
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <Video className="h-8 w-8 text-blue-600" />
               <span className="text-xl font-bold text-gray-900 dark:text-white">
-                VeoMaster Pro
+                AdStudio AI
               </span>
             </Link>
             <p className="text-gray-600 dark:text-gray-400 text-sm max-w-md">
-              Veo2/Veo3最新AI技術による4K品質のショート動画素材を提供するサブスクリプションサービスです。
-              美容・ダイエット・ヘルスケア・ライフスタイルなど豊富なカテゴリーをご用意しています。
+              Veo2/Veo3最新AI技術による高品質広告動画制作サービス。
+              CVR向上に特化した広告動画を美容・ダイエット・ライフスタイル等の業界別に提供しています。
             </p>
           </div>
 
@@ -87,7 +87,7 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
           <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
-            © 2025 VeoMaster Pro. All rights reserved.
+            © 2025 AdStudio AI. All rights reserved.
           </p>
         </div>
       </div>

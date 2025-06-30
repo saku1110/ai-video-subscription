@@ -8,22 +8,22 @@ const features = [
   {
     icon: Play,
     title: 'Veo2/Veo3 AI技術',
-    description: 'Google最新AI技術による実写品質4K動画。月300本自動生産体制',
+    description: 'Google最新AI技術による実写品質の広告動画。CVR向上に特化した制作',
   },
   {
     icon: Download,
-    title: '即座ダウンロード',
-    description: 'ワンクリックで4K MP4をダウンロード。ウォーターマーク除去済み',
+    title: '即座納品',
+    description: '最短24時間で4K品質の広告動画を納品。修正回数無制限対応',
   },
   {
     icon: Shield,
     title: '完全商用ライセンス',
-    description: '著作権フリー・商用利用無制限。安心してビジネス活用可能',
+    description: '著作権フリー・商用利用無制限。広告配信・SNS投稿も安心',
   },
   {
     icon: Clock,
-    title: '毎日新作追加',
-    description: 'AI自動生産により毎日10本の新作動画を追加。競合より圧倒的豊富',
+    title: 'A/Bテスト対応',
+    description: 'パターン違いの広告動画を複数制作。効果測定で最適化',
   },
 ]
 
@@ -50,19 +50,19 @@ export function Home() {
 
             <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
               <span className="bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
-                VeoMaster Pro
+                AdStudio AI
               </span>
               <br />
               <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent text-4xl md:text-6xl">
-                プレミアム動画素材
+                AI広告動画制作
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-gray-300 leading-relaxed">
-              <span className="text-white font-semibold">Google最新AI技術</span>による
-              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-bold">4K品質の縦型動画素材</span>を
+              <span className="text-white font-semibold">Veo2/Veo3 AI技術</span>による
+              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-bold">高品質広告動画</span>を
               <br className="hidden md:block" />
-              <span className="text-blue-300 font-bold">月額¥49,800〜</span>のサブスクリプションで提供
+              <span className="text-blue-300 font-bold">月額¥49,800〜</span>で制作・提供
             </p>
             
             {/* Premium CTAs */}
@@ -172,12 +172,12 @@ export function Home() {
               <span className="text-sm font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">✨ プレミアム機能</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
-              なぜ<span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">VeoMaster Pro</span>が選ばれるのか
+              なぜ<span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">AdStudio AI</span>が選ばれるのか
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              業界最高峰の<span className="font-bold text-blue-600">Veo2/Veo3 AI技術</span>と自動生産システムにより、
+              業界最高峰の<span className="font-bold text-blue-600">Veo2/Veo3 AI技術</span>による広告特化制作で、
               <br className="hidden md:block" />
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold">競合の1/2価格で2倍の品質</span>を実現
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold">CVR2倍向上を実現</span>する高品質広告動画
             </p>
           </div>
 
@@ -219,12 +219,12 @@ export function Home() {
               <span className="text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">🎬 サンプル動画</span>
             </div>
             <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-6">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">プレミアム品質</span>を体験
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">広告動画サンプル</span>を体験
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              <span className="font-semibold text-blue-600">Veo2/Veo3 AI技術</span>による実写クオリティの動画素材を
+              <span className="font-semibold text-blue-600">CVR向上</span>に特化したAI広告動画を
               <br className="hidden md:block" />
-              豊富なカテゴリーでご用意しています
+              美容・ダイエット・ライフスタイル等の業界別でご提供
             </p>
           </div>
         </div>
@@ -259,23 +259,23 @@ export function Home() {
             {[
               {
                 name: "田中 美咲",
-                role: "YouTubeクリエイター",
+                role: "デジタル広告代理店 CEO",
                 avatar: "👩‍💼",
-                content: "VeoMaster Proの動画素材は本当に高品質で、他社と比べて価格も圧倒的に安い。月300本の新作追加で、いつも新鮮なコンテンツが手に入ります。",
+                content: "AdStudio AIの広告動画でCVRが平均2.3倍向上しました。クライアントのROAS改善に直結し、案件獲得も増加。もう手放せません。",
                 rating: 5
               },
               {
                 name: "佐藤 健太",
-                role: "マーケティング会社CEO",
+                role: "D2Cブランド マーケティング責任者",
                 avatar: "👨‍💼",
-                content: "Veo2/Veo3のAI技術による4K品質は素晴らしい。商用ライセンス付きで安心してクライアント案件に使用できます。ROIが明らかに向上しました。",
+                content: "従来の動画制作会社と比べて1/3のコストで高品質な広告動画を量産。A/Bテスト用のバリエーション制作も簡単で、PDCAが回しやすい。",
                 rating: 5
               },
               {
                 name: "山田 りさ",
-                role: "SNSマーケター",
+                role: "美容ブランド SNS運用担当",
                 avatar: "👩‍🎨",
-                content: "以前は動画制作に時間がかかっていましたが、VeoMaster Proのおかげで制作時間が1/3に短縮。クライアントからの評価も格段に上がりました。",
+                content: "Instagram・TikTok広告の成果が劇的に改善。特に美容系の広告動画のクオリティが高く、ターゲット層への訴求力が段違いです。",
                 rating: 5
               }
             ].map((testimonial, index) => (
