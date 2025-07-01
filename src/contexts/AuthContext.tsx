@@ -28,26 +28,74 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Temporary: Skip Supabase connection for demo
-    setLoading(false)
-    setUser(null)
-    setSession(null)
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+      setUser(session?.user ?? null)
+      setLoading(false)
+    })
+
+    // Listen for auth changes
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+      setUser(session?.user ?? null)
+      setLoading(false)
+    })
+
+    return () => subscription.unsubscribe()
   }, [])
 
   const signIn = async (email: string, password: string) => {
-    return { error: null }
+    try {
+      setLoading(true)
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+      return { data, error }
+    } catch (error) {
+      return { error }
+    } finally {
+      setLoading(false)
+    }
   }
 
   const signUp = async (email: string, password: string) => {
-    return { error: null }
+    try {
+      setLoading(true)
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+      })
+      return { data, error }
+    } catch (error) {
+      return { error }
+    } finally {
+      setLoading(false)
+    }
   }
 
   const signOut = async () => {
-    return { error: null }
+    try {
+      setLoading(true)
+      const { error } = await supabase.auth.signOut()
+      return { error }
+    } catch (error) {
+      return { error }
+    } finally {
+      setLoading(false)
+    }
   }
 
   const resetPassword = async (email: string) => {
-    return { error: null }
+    try {
+      const { data, error } = await supabase.auth.resetPasswordForEmail(email)
+      return { data, error }
+    } catch (error) {
+      return { error }
+    }
   }
 
   const value = {
