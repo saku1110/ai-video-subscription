@@ -31,7 +31,7 @@ export function Home() {
   const { user } = useAuth()
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white overflow-hidden">
         {/* Animated Background Elements */}

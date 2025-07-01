@@ -28,73 +28,51 @@ export function VideoGrid() {
   const { profile } = useProfile()
 
   useEffect(() => {
-    // Use sample data for demo
-    const sampleVideos = [
-      {
-        id: '1',
-        title: '美容クリーム使用シーン（若い女性）',
-        category: 'beauty',
-        file_url: '#',
-        thumbnail_url: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=711&fit=crop&crop=faces',
-        duration: 15,
-        tags: ['美容', 'スキンケア', '20代'],
-        created_at: new Date().toISOString()
-      },
-      {
-        id: '2',
-        title: 'ヨガエクササイズ（フィットネス）',
-        category: 'diet',
-        file_url: '#',
-        thumbnail_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=711&fit=crop&crop=center',
-        duration: 30,
-        tags: ['ダイエット', 'ヨガ', '運動'],
-        created_at: new Date().toISOString()
-      },
-      {
-        id: '3',
-        title: 'ヘアケアルーティン（ロングヘア）',
-        category: 'hair-care',
-        file_url: '#',
-        thumbnail_url: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=711&fit=crop&crop=faces',
-        duration: 20,
-        tags: ['ヘアケア', '髪質改善', 'ルーティン'],
-        created_at: new Date().toISOString()
-      },
-      {
-        id: '4',
-        title: 'モーニングコーヒータイム',
-        category: 'daily',
-        file_url: '#',
-        thumbnail_url: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=711&fit=crop&crop=center',
-        duration: 12,
-        tags: ['日常', 'カフェ', 'リラックス'],
-        created_at: new Date().toISOString()
-      },
-      {
-        id: '5',
-        title: 'メイクアップチュートリアル（ナチュラル）',
-        category: 'beauty',
-        file_url: '#',
-        thumbnail_url: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&h=711&fit=crop&crop=faces',
-        duration: 25,
-        tags: ['メイク', '美容', 'チュートリアル'],
-        created_at: new Date().toISOString()
-      },
-      {
-        id: '6',
-        title: 'ランニング風景（朝活）',
-        category: 'diet',
-        file_url: '#',
-        thumbnail_url: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=711&fit=crop&crop=center',
-        duration: 18,
-        tags: ['ランニング', '朝活', '健康'],
-        created_at: new Date().toISOString()
-      }
-    ]
-    
-    setVideos(sampleVideos)
-    setLoading(false)
+    fetchVideos()
+    if (user) {
+      fetchFavorites()
+    }
   }, [user])
+
+  const fetchVideos = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('videos')
+        .select('*')
+        .order('created_at', { ascending: false })
+
+      if (error) throw error
+      setVideos(data || [])
+    } catch (error) {
+      console.error('Error fetching videos:', error)
+      // Fallback to sample data if database fails
+      const sampleVideos = [
+        {
+          id: '1',
+          title: '美容クリーム使用シーン（若い女性）',
+          category: 'beauty',
+          file_url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+          thumbnail_url: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=711&fit=crop&crop=faces',
+          duration: 8,
+          tags: ['美容', 'スキンケア', 'AI生成'],
+          created_at: new Date().toISOString()
+        },
+        {
+          id: '2',
+          title: 'ヨガエクササイズ（フィットネス）',
+          category: 'diet',
+          file_url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+          thumbnail_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=711&fit=crop&crop=center',
+          duration: 8,
+          tags: ['ダイエット', 'ヨガ', 'AI生成'],
+          created_at: new Date().toISOString()
+        }
+      ]
+      setVideos(sampleVideos)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const fetchFavorites = async () => {
     if (!user) return
@@ -273,8 +251,13 @@ export function VideoGrid() {
                   alt={video.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-                  <Play className="h-12 w-12 text-white" />
+                <div 
+                  className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
+                  onClick={() => window.open(video.file_url, '_blank')}
+                >
+                  <div className="bg-white bg-opacity-90 rounded-full p-3 hover:bg-opacity-100 transition-all">
+                    <Play className="h-8 w-8 text-gray-900 fill-current" />
+                  </div>
                 </div>
                 <div className="absolute top-2 right-2 text-xs bg-black bg-opacity-75 text-white px-2 py-1 rounded">
                   {video.duration}秒
